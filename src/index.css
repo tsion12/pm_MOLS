@@ -1,13 +1,333 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar-track {
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+  background-color: #f8f8f800;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5fc9e1;
+  border-radius: 10px;
+}
+tbody > tr:nth-child(even) {
+  background-color: #ffffff;
+}
+/* loader */
+.loading-wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+.loading {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.loading div {
+  position: absolute;
+  background: #099dbe;
+  opacity: 1;
+  border-radius: 50%;
+  animation: loading 1.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.loading div:nth-child(2) {
+  animation-delay: -0.7s;
+}
+@keyframes loading {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+/* end of loader */
+.bigBoxShadow {
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.15);
+}
+.bigCardShadow {
+  box-shadow: 0px 6.53px 32.66px rgba(197, 197, 197, 0.3);
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.statusbar-shadow {
+  box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.noscroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.noscroll-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.light-background {
+  background: linear-gradient(
+    180deg,
+    rgba(111, 194, 249, 0.5) 0%,
+    #6fc2f9 100%
+  );
+}
+
+/* Half Circle Progress Bar Styles  */
+
+.progress {
+  position: relative;
+  margin: 4px;
+  float: left;
+  text-align: center;
+}
+.barOverflow {
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 90px;
+  margin-bottom: -18px;
+}
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  border: 25px solid #5fc9e1;
+  border-bottom-color: #eee;
+  border-right-color: #eee;
+}
+
+/* .progressSmall {
+  position: relative;
+  margin: 4px;
+  float: left;
+  text-align: center;
+}
+.barOverflowSmall {
+  position: relative;
+  overflow: hidden;
+  width: 90px;
+  height: 45px;
+  margin-bottom: -14px;
+}
+.barSmall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  border: 20px solid #0bf;
+  border-bottom-color: #eee;
+  border-right-color: #eee;
+} */
+
+.react-calendar {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.CommentArea,
+.CommentArea:focus {
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-apperarance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  outline: none;
+  resize: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
+.smallCardsBackground {
+  background: linear-gradient(
+    180deg,
+    rgba(111, 194, 249, 0.1) 0%,
+    rgba(111, 194, 249, 0.3)
+  );
+}
+
+.ck-content {
+  padding: 15px !important;
+}
+
+.ck-editor {
+  border: 0.5px solid #5fc9e1 !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+#notfound {
+  position: relative;
+  height: 100vh;
+  background-color: #fafbfd;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+.notfound .notfound-bg {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.notfound .notfound-bg > div {
+  width: 100%;
+  background: #fff;
+  border-radius: 90px;
+  height: 125px;
+}
+
+.notfound .notfound-bg > div:nth-child(1) {
+  -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+  box-shadow: 5px 5px 0px 0px #f3f3f3;
+}
+
+.notfound .notfound-bg > div:nth-child(2) {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+  box-shadow: 5px 5px 0px 0px #f3f3f3;
+  position: relative;
+  z-index: 10;
+}
+
+.notfound .notfound-bg > div:nth-child(3) {
+  -webkit-box-shadow: 5px 5px 0px 0px #f3f3f3;
+  box-shadow: 5px 5px 0px 0px #f3f3f3;
+  position: relative;
+  z-index: 90;
+}
+
+.notfound h1 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 86px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #151515;
+}
+
+.notfound h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 26px;
+  margin: 0;
+  font-weight: 700;
+  color: #151515;
+}
+
+.notfound .goback {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #5fc9e1;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.notfound-social {
+  margin-top: 20px;
+}
+
+.notfound-social > a {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #dedede;
+  margin: 3px;
+  padding: 0px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+.notfound-social > .goback:hover {
+  background-color: #3998ad;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-bg {
+    width: 287px;
+    margin: auto;
+  }
+
+  .notfound .notfound-bg > div {
+    height: 85px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound h1 {
+    font-size: 68px;
+  }
+
+  .notfound h2 {
+    font-size: 18px;
+  }
+}
+
+/* Autofill inputs */
+
+input:-webkit-autofill {
 }
